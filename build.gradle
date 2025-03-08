@@ -19,7 +19,6 @@ dependencies {
     runtimeOnly 'com.h2database:h2' // 인메모리 데이터베이스 H2
     compileOnly 'org.projectlombok:lombok' // 롬북
     annotationProcessor 'org.projectlombok:lombok'
-
 }
 
 test {
