@@ -13,12 +13,13 @@ import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-import static org.springframework.test.web.client.match.MockRestRequestMatchers.jsonPath;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.web.servlet.function.ServerResponse.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@SpringBootTest // 테스트용 애플리케이션 컨텍스트 생성
-@AutoConfigureMockMvc // MockMvc 생성 및 자동 구성
+
+@SpringBootTest
+@AutoConfigureMockMvc
 class TestControllerTest {
     @Autowired
     protected MockMvc mockMvc;
@@ -28,34 +29,31 @@ class TestControllerTest {
 
     @Autowired
     private MemberRepository memberRepository;
-
     @BeforeEach
-    public void mockMvcSetup() {
-        this.mockMvc = MockMvcBuilders.webAppContextSetup(this.context)
+    public void mockMvcSetUp() {
+        this.mockMvc = MockMvcBuilders.webAppContextSetup(context)
                 .build();
     }
-
     @AfterEach
-    public void cleanup() {
+    public void cleanUp() {
         memberRepository.deleteAll();
     }
 
-    @DisplayName("getAllMembers : 아티클 조회에 성공한다.");
+    @DisplayName("getAllMembers: 아티클 조회에 성공한다.")
     @Test
     public void getAllMembers() throws Exception {
-        //given
+        // given
         final String url = "/test";
-        Member savedMember = MemberRepository.save(new Member(1L, "홍길동"));
+        Member savedMember = memberRepository.save(new Member(1L, "홍길동"));
 
-        //when
+        // when
         final ResultActions result = mockMvc.perform(get(url)
-                        .accept(MediaType.APPLICATION_JSON));
+                .accept(MediaType.APPLICATION_JSON));
 
-        //then
+        // then
         result
-                .andExpect(status().isOK())
+                .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].id").value(savedMember.getId()))
                 .andExpect(jsonPath("$[0].name").value(savedMember.getName()));
-
     }
 }
