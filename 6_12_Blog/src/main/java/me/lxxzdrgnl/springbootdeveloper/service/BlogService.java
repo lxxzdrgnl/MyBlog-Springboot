@@ -1,7 +1,7 @@
 package me.lxxzdrgnl.springbootdeveloper.service;
 
 import lombok.RequiredArgsConstructor;
-import me.lxxzdrgnl.springbootdeveloper.DTO.AddArticleRequest;
+import me.lxxzdrgnl.springbootdeveloper.dto.AddArticleRequest;
 import me.lxxzdrgnl.springbootdeveloper.domain.Article;
 import me.lxxzdrgnl.springbootdeveloper.repository.BlogRepository;
 import org.springframework.stereotype.Service;

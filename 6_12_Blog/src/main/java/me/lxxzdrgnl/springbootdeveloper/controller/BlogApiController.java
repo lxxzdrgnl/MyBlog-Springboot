@@ -1,7 +1,7 @@
 package me.lxxzdrgnl.springbootdeveloper.controller;
 
 import lombok.RequiredArgsConstructor;
-import me.lxxzdrgnl.springbootdeveloper.DTO.AddArticleRequest;
+import me.lxxzdrgnl.springbootdeveloper.dto.AddArticleRequest;
 import me.lxxzdrgnl.springbootdeveloper.domain.Article;
 import me.lxxzdrgnl.springbootdeveloper.service.BlogService;
 import org.springframework.http.HttpStatus;
