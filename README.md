@@ -1,6 +1,6 @@
 # Spring Boot Blog Project
 
-This project is a personal blog application built by following the book **“Becoming a Spring Boot 3 Developer”**. It provides practical experience with Spring Boot 3, JPA, and Thymeleaf by implementing essential features for a blog platform.
+This project is a personal blog application built by following the book **“스프링부트3 백엔드 개발자 되기(Becoming a Spring Boot 3 Back-End Developer)”**. It provides practical experience with Spring Boot 3, JPA, and Thymeleaf by implementing essential features for a blog platform.
 
 ## Features
 
