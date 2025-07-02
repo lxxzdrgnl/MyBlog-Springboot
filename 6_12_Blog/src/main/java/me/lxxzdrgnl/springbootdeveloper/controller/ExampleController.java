@@ -21,6 +21,7 @@ public class ExampleController {
 
         model.addAttribute("person", examplePerson);
         model.addAttribute("today", LocalDate.now());
+
         return "thymeleaf/example";
     }
     @Setter
